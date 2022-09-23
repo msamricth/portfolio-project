@@ -4,9 +4,11 @@ export function main() {
         data () {
         return {
             siteTitle: null,
-            tagLine:null,
+            siteTag:null,
             loading: true,
-            errored: false
+            errored: false,
+            
+            records: []
         }
         },
         filters: {
@@ -21,11 +23,25 @@ export function main() {
         axios
             .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Labels?view=Grid&api_key=keyMMHoSzh3H08K5v")
             .then(response => {
+                
+            this.siteTag = response.data.records[0].fields.TagLine;
             this.siteTitle = response.data.records[0].fields.Name;
-            this.tagLine = response.data.records[0].fields.TagLine;
+
             document.getElementById("siteTitle").innerHTML = this.siteTitle;
             $('#siteTitle').removeClass('placeholder');
-            console.log(this.siteTitle);
+            document.getElementById("tagline").innerHTML = this.siteTag;
+            $('#tagline').removeClass('placeholder');
+            console.log(this.TagLin);
+
+            axios
+            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=Grid&api_key=keyMMHoSzh3H08K5v")
+            .then(response => {
+            this.records = response.data.records
+            console.log(this.records);
+      
+          })
+
+
         })
             .catch(error => {
             console.log(error)
@@ -34,4 +50,6 @@ export function main() {
             .finally(() => this.loading = false)
         }
     });
+ 
+
 }

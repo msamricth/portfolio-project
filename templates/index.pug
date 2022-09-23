@@ -1,4 +1,4 @@
-extends ./layouts/default.pug
+extends ./layouts/home.pug
 
 block vars
   - pageTitle = "Home";
@@ -9,20 +9,9 @@ block content
   main.main(id="home")
     // Section
     section.header
-      .container
-        h1.placeholder(id="siteTitle")
-        h2 This is section 1
-        p This is a paragraph.
+      .container.py-5
+        h1.placeholder.mb-0(id="siteTitle")
+        p.placeholder(id="tagline")
 
-    // Section
-    section.section
-      .container
-        h2 This is section 2
-        p This is a paragraph. Some 
-          b bold
-          | , 
-          i italic
-          |  and 
-          b
-            i bold italic
-          | .
+        include partials/work.pug
+        include partials/footer.pug
