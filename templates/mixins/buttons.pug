@@ -1,0 +1,158 @@
+//- button mixins
+//- anchor buttons
+mixin a-btn(url,style)
+        - var type = (typeof style === 'undefined') ? "default" : style
+        a.btn(class=`btn-${type}`,href=url,role="button")
+                block
+
+mixin a-btn-primary(url)
+        +a-btn(url,"primary")
+                block
+        
+mixin a-btn-info(url)
+        +a-btn(url,"info")
+                block
+        
+mixin a-btn-warning(url)
+        +a-btn(url,"warning")
+                block
+        
+mixin a-btn-danger(url)
+        +a-btn(url,"danger")
+                block
+        
+mixin a-btn-success(url)
+        +a-btn(url,"success")
+                block
+
+//- buttons
+mixin btn(type)
+  button.btn(class=`btn-${type}`,type="button")&attributes(attributes)
+    block
+
+
+mixin btn-primary()
+  +btn("primary")&attributes(attributes)
+    block
+        
+mixin btn-secondary()
+  +btn("secondary")&attributes(attributes)
+    block
+
+mixin btn-info()
+  +btn("info")&attributes(attributes)
+    block
+        
+mixin btn-warning()
+  +btn("warning")&attributes(attributes)
+    block
+        
+mixin btn-danger()
+  +btn("danger")&attributes(attributes)
+    block
+        
+mixin btn-success()
+  +btn("success")&attributes(attributes)
+    block
+
+mixin btn-light()
+  +btn("light")&attributes(attributes)
+    block
+
+mixin btn-dark()
+  +btn("dark")&attributes(attributes)
+    block
+
+//- Large buttons       
+mixin btn-lg(type)
+  +btn(type)(class="btn-lg")&attributes(attributes)
+    block
+        
+mixin btn-lg-primary()
+  +btn("primary")(class="btn-lg")&attributes(attributes)
+    block
+        
+mixin btn-lg-secondary()
+  +btn("secondary")(class="btn-lg")&attributes(attributes)
+    block
+
+mixin btn-lg-info()
+  +btn("info")&attributes(attributes)
+    block
+        
+mixin btn-lg-success()
+  +btn("success")&attributes(attributes)
+    block
+        
+mixin btn-lg-warning()
+  +btn("warning")&attributes(attributes)
+    block
+        
+mixin btn-lg-danger()
+  +btn("danger")&attributes(attributes)
+    block
+        
+mixin btn-lg-light()
+  +btn("light")&attributes(attributes)
+    block
+
+mixin btn-lg-dark()
+  +btn("dark")&attributes(attributes)
+    block
+
+//- Small buttons       
+mixin btn-sm(type)
+  +btn(type)(class="btn-sm")&attributes(attributes)
+    block
+        
+mixin btn-sm-primary(caption)
+        +btn(caption,"primary","sm")
+        
+mixin btn-sm-info(caption)
+        +btn(caption,"info","sm")
+        
+mixin btn-sm-success(caption)
+        +btn(caption,"success","sm")
+        
+mixin btn-sm-warning(caption)
+        +btn(caption,"warning","sm")
+        
+mixin btn-sm-danger(caption)
+        +btn(caption,"danger","sm")
+        
+//- Outline buttons
+mixin btn-outline(type)
+  +btn.btn(class="btn-outline-" + type)&attributes(attributes)
+    block
+
+mixin btn-outline-primary()
+  +btn-outline('primary')&attributes(attributes)
+    block
+
+mixin btn-outline-secondary()
+  +btn-outline('secondary')&attributes(attributes)
+    block
+
+mixin btn-outline-success()
+  +btn-outline('success')&attributes(attributes)
+    block
+
+mixin btn-outline-danger()
+  +btn-outline('danger')&attributes(attributes)
+    block
+
+mixin btn-outline-warning()
+  +btn-outline('warning')&attributes(attributes)
+    block
+
+mixin btn-outline-info()
+  +btn-outline('info')&attributes(attributes)
+    block
+
+mixin btn-outline-light()
+  +btn-outline('light')&attributes(attributes)
+    block
+
+mixin btn-outline-dark()
+  +btn-outline('dark')&attributes(attributes)
+    block
