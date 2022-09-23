@@ -7,8 +7,8 @@ export function main() {
             siteTag:null,
             loading: true,
             errored: false,
-            
-            records: []
+            featuredProjects: [],
+            additionalProjects: [],
         }
         },
         filters: {
@@ -34,11 +34,15 @@ export function main() {
             console.log(this.TagLin);
 
             axios
-            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=Grid&api_key=keyMMHoSzh3H08K5v")
+            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=featured&api_key=keyMMHoSzh3H08K5v")
             .then(response => {
-            this.records = response.data.records
-            console.log(this.records);
-      
+            this.featuredProjects = response.data.records
+            axios
+            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=not-featured&api_key=keyMMHoSzh3H08K5v")
+            .then(response => {
+                this.additionalProjects = response.data.records
+        
+            })
           })
 
 
@@ -50,6 +54,29 @@ export function main() {
             .finally(() => this.loading = false)
         }
     });
- 
-
+    var workSection = $('#featured-work');
+    var workContainer = $('section#work');
+    var header = $('#home section.header');
+    header.on('inview', function(event, isInView) {
+        if (isInView) {
+            if(workContainer.hasClass('active')){
+                workContainer.removeClass('active');
+            }
+        } 
+    });
+    workSection.on('inview', function(event, isInView) {
+        if (isInView) {
+            workContainer.addClass('active');
+            $('.workbtn-container').fadeOut();
+        } else {
+            workContainer.removeClass('active');
+        }
+    });
+    const additional_projects = document.getElementById('additional_projects');
+    additional_projects.addEventListener('hidden.bs.collapse', event => {
+        $('#work .btn-collapse').removeClass('active');
+    });
+    additional_projects.addEventListener('shown.bs.collapse', event => {
+        $('#work .btn-collapse').addClass('active');
+    });
 }

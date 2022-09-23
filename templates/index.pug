@@ -9,9 +9,12 @@ block content
   main.main(id="home")
     // Section
     section.header
-      .container.py-5
+      .container-fluid.px-4.py-5
         h1.placeholder.mb-0(id="siteTitle")
         p.placeholder(id="tagline")
-
-        include partials/work.pug
-        include partials/footer.pug
+      .workbtn-container 
+        a.breathing-button.btnlink.d-inline-block(href="#work") View Work 
+          i.bi.bi-arrow-return-left
+    include partials/work.pug
+    include partials/skills.pug
+    include partials/footer.pug

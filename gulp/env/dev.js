@@ -3,6 +3,10 @@ var browserSync = require("browser-sync");
 
 gulp.task("browser-sync", function(done) {
   browserSync({
+    port: 8060,//Or whatever port you want for your application
+    ui: {
+      port: 8061 //Or whatever port you want for browsersync ui
+    },
     server: {
       baseDir: "./site"
     },
