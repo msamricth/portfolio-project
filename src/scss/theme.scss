@@ -1,3 +1,8 @@
+@include media-breakpoint-up(3xl) { 
+    body, p {
+        font-size: 1.4rem;
+    }
+}
 h1{
     font-weight: 700;
 }
@@ -44,13 +49,15 @@ section.work {
     transition: background 0s;
   }
 }
-.active .action-btn-container {
-    position: fixed;
-    width: 70px;
-    bottom: 0;
-    right: 1.025rem;
-    height: 61px;
-    overflow: hidden;
+@include media-breakpoint-up(dlg) { 
+    .active .action-btn-container {
+        position: fixed;
+        width: 70px;
+        bottom: 0;
+        right: 1.025rem;
+        height: 61px;
+        overflow: hidden;
+    }
 }
 .btn-action {
     position: absolute;
@@ -123,8 +130,9 @@ section.skills {
         vertical-align: text-top;
     }
 }
-
-
+.out {display: none;}
+.active > .in {display: none;}
+.active > .out {display: inline-block;}
 @-webkit-keyframes breathing {
   0% {
     -webkit-transform: scale(0.75);
@@ -181,3 +189,71 @@ section.skills {
     text-decoration: none;
     color:$gray-900;
 }
+.skillsets {
+    button.card {
+        width: 100%;
+        .card-body i {
+           height: 100%;
+           font-size: 60px;
+           margin-right: 21px;
+       }
+    }
+    .modal {
+        display: none;
+        z-index: 1040 !important;
+    }
+    .custom-popover {
+        --bs-popover-max-width: 200px;
+        --bs-popover-border-color: var(--bs-primary);
+        --bs-popover-header-bg: var(--bs-primary);
+        --bs-popover-header-color: var(--bs-white);
+        --bs-popover-body-padding-x: 1rem;
+        --bs-popover-body-padding-y: .5rem;
+      }
+}
+.fadeScroll {
+    transition: opacity 0.25s linear 0s;
+    opacity: 0;
+    &.in {
+        opacity: 1;
+        transition: ease 0.25s;
+        -moz-transform: translateX(0px) translateY(-10px);
+        -webkit-transform: translateX(0px) translateY(-10px);
+        -o-transform: translateX(0px) translateY(-10px);
+        -ms-transform: translateX(0px) translateY(-10px);
+        transform: translateX(0px) translateY(-10px);
+    }
+}
+@-webkit-keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+    40% {-webkit-transform: translateY(-30px);} 
+    60% {-webkit-transform: translateY(-15px);} 
+ } 
+ 
+ @keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+ }
+.bounce { 
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both; 
+    animation-fill-mode: both; 
+    &.in {
+        -webkit-animation-name: bounce; 
+        animation-name: bounce; 
+    }
+ }
+ .col:nth-child(even) .bounce { 
+    -webkit-animation-duration: 1.5s;
+    animation-duration: 1.5s; 
+ }
+ .col:nth-child(3n) .bounce { 
+    -webkit-animation-duration: 0.8s !important;
+    animation-duration: 0.8s !important; 
+ }
+ .col:nth-child(4n + 4) .bounce { 
+    -webkit-animation-duration: 1.2s !important;
+    animation-duration: 1.2s !important; 
+ }

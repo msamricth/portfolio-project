@@ -1,20 +1,21 @@
 section.work.py-6.bg-primary.px-xxl-5.px-3(id="work")
     .container-fluid
-        h3.mb-5 Featured Work
-        .featured-projects.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-lg-4.g-4.mb-6(id="featured-work")
+        h3.mb-5.fadeScroll Featured Work
+        .featured-projects.row.row-cols-1.row-cols-sm-2.row-cols-lg-4.g-4.mb-6(id="featured-work")
             .col(v-for="record in featuredProjects" v-bind:key="record.Title")
-                .card.border-0.rounded-0
+                .card.border-0.rounded-0.bounce
                     .card-header.text-center.bg-white.pt-3
                         <em class="text-primary small">{{ record['fields']['Project'] }}</em>
                         <h3>{{ record['fields']['Client'] }}</h3>
                     <img :src="record['fields']['Image'][0]['url']" alt="record['fields']['Image'][0]['filename']" v-if="record['fields']['Image']" class="card-img-top rounded-0">
-        .featured-projects.more-featured-projects.row.row-cols-2.row-cols-sm-3.row-cols-md-4.row-cols-lg-5.row-cols-xxl-6.g-2.collapse(id="additional_projects")
+        .featured-projects.more-featured-projects.row.row-cols-2.row-cols-sm-3.row-cols-md-4.row-cols-lg-5.row-cols-xxl-6.g-lg-2.g-3.collapse(id="additional_projects")
             .col(v-for="record in additionalProjects" v-bind:key="record.Title")
-                .card.border-0.rounded-0
+                .card.border-0.rounded-0.bounce
                     .card-header.text-center.bg-white.pt-3
                         <em class="text-primary small">{{ record['fields']['Project'] }}</em>
                         <h5>{{ record['fields']['Client'] }}</h5>
                     <img :src="record['fields']['Image'][0]['url']" alt="record['fields']['Image'][0]['filename']" v-if="record['fields']['Image']" class="card-img-top rounded-0">
         .action-btn-container
             button.btn.btn-secondary.btn-action.btn-collapse.ripple(type="button" data-bs-toggle="collapse" data-bs-target="#additional_projects" alt="View more projects" aria-expanded="false" aria-controls="additional_projects")
-                i.bi.bi-plus-square-fill
+                i.bi.bi-plus-square-fill.in
+                i.bi.bi-dash-square-fill.out

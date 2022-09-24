@@ -9,6 +9,7 @@ export function main() {
             errored: false,
             featuredProjects: [],
             additionalProjects: [],
+            skillsets: [],
         }
         },
         filters: {
@@ -40,7 +41,14 @@ export function main() {
             axios
             .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=not-featured&api_key=keyMMHoSzh3H08K5v")
             .then(response => {
-                this.additionalProjects = response.data.records
+                this.additionalProjects = response.data.records 
+                axios
+                .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/skills?view=grid&api_key=keyMMHoSzh3H08K5v")
+                .then(response => {
+                    this.skillsets = response.data.records
+                    console.log(this.skillsets);
+            
+                })
         
             })
           })
@@ -59,24 +67,48 @@ export function main() {
     var header = $('#home section.header');
     header.on('inview', function(event, isInView) {
         if (isInView) {
+            
+            $('.workbtn-container').fadeIn();
             if(workContainer.hasClass('active')){
                 workContainer.removeClass('active');
+                $('#work .bounce, #work .fadeScroll').removeClass("in");
             }
+            
         } 
     });
     workSection.on('inview', function(event, isInView) {
         if (isInView) {
             workContainer.addClass('active');
             $('.workbtn-container').fadeOut();
+            $('#work .bounce').addClass("in");
         } else {
             workContainer.removeClass('active');
         }
     });
-    const additional_projects = document.getElementById('additional_projects');
-    additional_projects.addEventListener('hidden.bs.collapse', event => {
-        $('#work .btn-collapse').removeClass('active');
+    $('.fadeScroll').on('inview', function(event, isInView) {
+        var scrollObject = $(this);
+        if (isInView) {
+            setTimeout(
+                function() {
+                    scrollObject.addClass('in');
+                }, 400);
+            
+        } else {
+        }
     });
-    additional_projects.addEventListener('shown.bs.collapse', event => {
-        $('#work .btn-collapse').addClass('active');
-    });
+    jQuery(function() {
+        
+        $('.bounce').on('inview', function(event, isInView) {
+            var scrollObject = $(this);
+            if (isInView) {
+                setTimeout(
+                    function() {
+                        scrollObject.addClass('in');
+                    }, 400);
+                
+            } else {
+                scrollObject.removeClass('in');
+            }
+        });
+    })
 }
