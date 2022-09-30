@@ -6,8 +6,11 @@ block vars
 
 block content
   // Main
-  main.main(id="home")
+  main.main(id="homeSection")
     // Section
+    .d-flex.justify-content-center.py-8.loader
+        .spinner-border.text-dark(role="status")
+            span.visually-hidden Loading...
     section.header
       .container-fluid.px-4.py-5.fadeScroll
         h1.placeholder.mb-0(id="siteTitle")

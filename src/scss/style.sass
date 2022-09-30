@@ -4,28 +4,6 @@
 // minireset.css - A tiny modern CSS reset https://jgthms.com/minireset.css/
 @import "minireset.css/minireset.sass"
 // -----------------------------------------------------------------------------
-// Utilities
-// -----------------------------------------------------------------------------
-@import "utilities/_all"
-
-// -----------------------------------------------------------------------------
-// Fonts
-// -----------------------------------------------------------------------------
-@import "fonts/_all"
-
-// -----------------------------------------------------------------------------
-// Base
-// -----------------------------------------------------------------------------
-@import "base/_all"
-
-// -----------------------------------------------------------------------------
-// Layout
-// -----------------------------------------------------------------------------
-@import "layout/_all"
-
-// -----------------------------------------------------------------------------
-// Development utilities
-// -----------------------------------------------------------------------------
 @import "dev/shame.sass"
 // @import "dev/structure.sass"
 
@@ -40,7 +18,7 @@
 @import "../node_modules/bootstrap/scss/reboot"
 
 @import "../node_modules/bootstrap/scss/type"
-// @import "../node_modules/bootstrap/scss/images"
+@import "../node_modules/bootstrap/scss/images"
 @import "../node_modules/bootstrap/scss/containers"
 @import "../node_modules/bootstrap/scss/grid"
 // @import "../node_modules/bootstrap/scss/tables"
@@ -61,16 +39,17 @@
 // @import "../node_modules/bootstrap/scss/list-group"
 @import "../node_modules/bootstrap/scss/close"
 // @import "../node_modules/bootstrap/scss/toasts"
-@import "../node_modules/bootstrap/scss/modal" // Requires transitions
+//@import "../node_modules/bootstrap/scss/modal" // Requires transitions
 // @import "../node_modules/bootstrap/scss/tooltip"
 @import "../node_modules/bootstrap/scss/popover"
-// @import "../node_modules/bootstrap/scss/carousel"
+//@import "../node_modules/bootstrap/scss/carousel"
 @import "../node_modules/bootstrap/scss/spinners"
-@import "../node_modules/bootstrap/scss/offcanvas" // Requires transitions
+//@import "../node_modules/bootstrap/scss/offcanvas" // Requires transitions
 @import "../node_modules/bootstrap/scss/placeholders"
-
+@import "../node_modules/owl.carousel/src/scss/owl.carousel"
+@import "../node_modules/owl.carousel/src/scss/owl.theme.default"
 // Helpers
-// @import "helpers"
+@import "../node_modules/bootstrap/scss/helpers"
 
 // Utilities
 @import "../node_modules/bootstrap/scss/utilities/api"

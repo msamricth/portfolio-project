@@ -1,21 +1,16 @@
 section.skills.py-6.bg-secondary.px-xxl-5.px-3(id="skills")
     .container-fluid
         h3.mb-0.fadeScroll Featured Skillsets
-        p.mb-5.fadeScroll Languages / Platforms / frameworks / and everything in-between. 
-        .skillsets.row.row-cols-2.row-cols-lg-3.row-cols-3xl-4.g-4.mb-6(id="skillsets")
-            .col(v-for="record in skillsets" v-bind:key="record.Title")
-                button.fadeScroll.card.border-0.rounded-0(type="button" 
-                              data-bs-toggle="collapse" 
-                              :data-bs-target="'#' + record['fields']['Name']" 
-                              aria-expanded="false" 
-                              :aria-controls="record['fields']['Name']")
-                    .card-body.align-items-center.d-flex  
-                        i(:class="record['fields']['icon']")
-                        .card-text
-                            em.text-muted.small {{ record['fields']['List Summary'] }}
-                            h3 {{ record['fields']['Name'] }}
-                .collapse(:id="record['fields']['Name']")
-                    .card.card-body 
-                        h3 {{ record['fields']['Name'] }}
-                        em.text-muted.small {{ record['fields']['List'] }}
-                        
+        p.mb-xl-5.mb-3.fadeScroll Languages / Tech Stacks / Frameworks / and everything in-between. 
+        .skillsets.row.row-cols-1.row-cols-sm-2.row-cols-md-3.row-cols-dlg-4.row-cols-3xl-5.g-2.mb-6(id="skillsets")
+            .skillsets__col.col(v-for="record in skillsets" v-bind:key="record.Title")
+                button.skillsets__col--btn.bounce-card.fadeScroll.card.border-0.rounded-0(type="button" :data-skillTarget="'#' + record['fields']['Name']" onclick="showSKillz()")
+                    .card-body
+                        h5.card-title {{ record['fields']['Name'] }}
+                        .d-flex
+                            i(:class="record['fields']['icon']")
+                            p.small(v-if="record['fields']['Number']") Associated experience: 
+                                span(v-html="record['fields']['ListTags']")
+                                em.text-muted.small.d-block.mt-2
+                                    span {{ record['fields']['Number'] }} 
+                                    span {{ record['fields']['Statement'] }}

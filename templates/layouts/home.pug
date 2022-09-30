@@ -4,48 +4,6 @@
 - var pageTitle = "";
 - var bodyClass = "";
 
-//- Including Icon mixins
-include ../mixins/icons
-//- Including Alert mixins
-include ../mixins/alerts
-//- Including Tooltip mixins
-include ../mixins/tooltips
-include ../mixins/card
-//- Including Accordion mixins
-include ../mixins/accordion
-//- Including Carousel mixins
-include ../mixins/carousel
-//- Including Table mixins
-include ../mixins/tables
-//- Including Navbar mixins
-include ../mixins/navbar
-//- Including Toggle Button mixins
-include ../mixins/toggle
-//- Including Nav mixins
-include ../mixins/navs
-//- Including Label mixins
-include ../mixins/labels
-//- Including Panel mixins
-include ../mixins/panels
-//- Including Tab mixins
-include ../mixins/tabs
-//- Including Dropdown mixins
-include ../mixins/dropdowns
-//- Including Form control mixins
-include ../mixins/forms
-//- Including Modal dialog mixins
-include ../mixins/modal
-//- Including List group mixins
-include ../mixins/list-groups
-//- Including Progress bar mixins
-include ../mixins/progress-bars
-//- Including Button mixins
-include ../mixins/buttons
-//- Including Image mixins
-include ../mixins/images
-//- Including Bootswatch theme mixins
-include ../mixins/bootswatch
-
 block vars
 
 doctype html
@@ -66,8 +24,8 @@ html(lang="en")
     link(href="css/style.css" + assetVersion, rel="stylesheet")
     link(rel="icon", type="image/x-icon", href="/images/favicon.ico")
   body(class=bodyClass)
-  
-    block content
+    .app
+      block content
 
     script(src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js")
@@ -75,4 +33,6 @@ html(lang="en")
   integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
   crossorigin="anonymous")
     script(src="https://kit.fontawesome.com/8b0174b394.js" crossorigin="anonymous")
+    script(type="text/javascript")
+      include inline/home.js
     script(src="js/scripts.js" + assetVersion)

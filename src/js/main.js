@@ -1,77 +1,14 @@
 export function main() {
-    var labels = new Vue({
-        el: '#home',
-        data () {
-        return {
-            siteTitle: null,
-            siteTag:null,
-            loading: true,
-            errored: false,
-            featuredProjects: [],
-            additionalProjects: [],
-            skillsets: [],
-        }
-        },
-        filters: {
-        footerdecimal (value) {
-            return value.toFixed(2)
-        }
-        },
-        mounted () {
-        var app_id = "appfvaCmvdk54pD1l";
-        var app_key = "keyMMHoSzh3H08K5v";
-    
-        axios
-            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Labels?view=Grid&api_key=keyMMHoSzh3H08K5v")
-            .then(response => {
-                
-            this.siteTag = response.data.records[0].fields.TagLine;
-            this.siteTitle = response.data.records[0].fields.Name;
-
-            document.getElementById("siteTitle").innerHTML = this.siteTitle;
-            $('#siteTitle').removeClass('placeholder');
-            document.getElementById("tagline").innerHTML = this.siteTag;
-            $('#tagline').removeClass('placeholder');
-            console.log(this.TagLin);
-
-            axios
-            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=featured&api_key=keyMMHoSzh3H08K5v")
-            .then(response => {
-            this.featuredProjects = response.data.records
-            axios
-            .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/Work?view=not-featured&api_key=keyMMHoSzh3H08K5v")
-            .then(response => {
-                this.additionalProjects = response.data.records 
-                axios
-                .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/skills?view=grid&api_key=keyMMHoSzh3H08K5v")
-                .then(response => {
-                    this.skillsets = response.data.records
-                    console.log(this.skillsets);
-            
-                })
-        
-            })
-          })
-
-
-        })
-            .catch(error => {
-            console.log(error)
-            this.errored = true
-        })
-            .finally(() => this.loading = false)
-        }
-    });
+    const portfolioListing = document.querySelector('#featured-work');
     var workSection = $('#featured-work');
     var workContainer = $('section#work');
+    var skillzContainer = $('section#skills');
     var header = $('#home section.header');
     header.on('inview', function(event, isInView) {
         if (isInView) {
-            
-            $('.workbtn-container').fadeIn();
+        
             if(workContainer.hasClass('active')){
                 workContainer.removeClass('active');
-                $('#work .bounce, #work .fadeScroll').removeClass("in");
             }
             
         } 
@@ -79,10 +16,18 @@ export function main() {
     workSection.on('inview', function(event, isInView) {
         if (isInView) {
             workContainer.addClass('active');
-            $('.workbtn-container').fadeOut();
+            $('#work .fadeScroll').addClass("in");
             $('#work .bounce').addClass("in");
         } else {
             workContainer.removeClass('active');
+        }
+    });
+    skillzContainer.on('inview', function(event, isInView) {
+        if (isInView) {
+            skillzContainer.addClass('active');
+            $('#skillsets .card').addClass("in");
+        } else {
+            skillzContainer.removeClass('active');
         }
     });
     $('.fadeScroll').on('inview', function(event, isInView) {
@@ -96,7 +41,41 @@ export function main() {
         } else {
         }
     });
+    const article = document.querySelectorAll(".skill-col-btn");
+    function showSKillz() {
+        if (article.className == "open") {
+          // read less
+          article.className = "";
+        } else {
+          //read more
+          article.className = "open";
+        }
+     }
     jQuery(function() {
+    var featuredCarousel = $('.featured-images');
+        if((featuredCarousel).length){
+            featuredCarousel.on('inview', function(event, isInView) {
+                if (isInView) {
+                    featuredCarousel.addClass('active');
+                } else {
+                    featuredCarousel.removeClass('active');
+                }
+            });
+        }
+        var skillbtn = $('#skills button.card');
+        var reset = '';
+        skillbtn.each(function(index) {
+            $(this).on("click", function(){
+                $('#skills button.card.active').removeClass('active');
+                $('#skillsets .col .collapse.show').removeClass('show');
+                var skillTar = $(this).data('skillTarget');
+                var skillTarget = '#' + skillTar;
+
+                $(this).addClass('active');
+                $(this + '> .card-body .card.text').fadeOut;
+                $(skillTarget).addClass('show');
+            });
+        });
         
         $('.bounce').on('inview', function(event, isInView) {
             var scrollObject = $(this);
@@ -107,7 +86,6 @@ export function main() {
                     }, 400);
                 
             } else {
-                scrollObject.removeClass('in');
             }
         });
     })
