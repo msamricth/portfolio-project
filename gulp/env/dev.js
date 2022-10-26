@@ -19,7 +19,7 @@ gulp.task("browser-sync", function(done) {
 gulp.task("watch", function() {
   gulp.watch("templates/**/*.pug", gulp.parallel("pug-reload"));
   gulp.watch(
-    ["sass/**/*.sass", "sass/**/*.scss"],
+    ["src/**/*.sass", "src/**/*.scss"],
     gulp.parallel("sass-stream")
   );
 
@@ -35,5 +35,5 @@ gulp.task("watch", function() {
 
 gulp.task(
   "default",
-  gulp.parallel("browser-sync", "watch", "sass", "pug", "script")
+  gulp.parallel("browser-sync", "watch", "sass", "pug", "script", "filesystem")
 );

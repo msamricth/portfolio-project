@@ -3,7 +3,7 @@ section.work.py-6.bg-primary.px-xxl-5.px-md-3(id="work")
         h3.mb-3.fadeScroll.ps-3.ps-md-0 Featured Work
         .featured-projects.d-md-block.d-none.owl-carousel.owl-theme(id="featured-work")
             .item.bounce.fadeScroll(v-for="(record, index) in featuredProjects" v-bind:key="record.Title" v-bind:class="{ 'active': index === 0 }")
-                .card.border-0.rounded-0.bounce-card
+                .card.border-0.bounce-card
                     .card-body.text-center.pt-3
                         a.stretched-link(:href="record['fields']['URL']+'.html'" :alt="record['fields']['Project']")
                             em.text-muted.small {{ record['fields']['Project'] }}
@@ -12,7 +12,7 @@ section.work.py-6.bg-primary.px-xxl-5.px-md-3(id="work")
                         <img :src="record['fields']['Image'][0]['url']" alt="record['fields']['Image'][0]['filename']" v-if="record['fields']['Image']" class="card-img-top rounded-0">
     .featured-projects.d-md-none.owl-carousel.owl-theme(id="featured-work-mobile")
         .item.bounce.fadeScroll.in(v-for="(record, index) in featuredProjects" v-bind:key="record.Title" v-bind:class="{ 'active': index === 0 }")
-            .card.border-0.rounded-0.bounce-card
+            .card.border-0.bounce-card
                 .card-body.text-center.pt-3
                     a.stretched-link(:href="record['fields']['URL']+'.html'" :alt="record['fields']['Project']")
                         em.text-muted.small {{ record['fields']['Project'] }}

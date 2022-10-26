@@ -1,5 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;700;900&family=Sanchez:ital@0;1&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@font-face {
+  font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 100;
+  src: local('SF UI Display Ultralight'), url('/assets/fonts/sf-ui-display-ultralight-58646b19bf205.woff') format('woff');
+  }
+  
+
+  @font-face {
+    font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 300;
+  src: local('SF UI Display Light'), url('/assets/fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
+  }
+  
+
+  @font-face {
+    font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF UI Display Medium'), url('/assets/fonts/sf-ui-display-medium-58646be638f96.woff') format('woff');
+  }
+
+  
+
+  @font-face {
+    font-family: 'SF UI Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF UI Display Bold'), url('/assets/fonts/sf-ui-display-bold-58646a511e3d9.woff') format('woff');
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;0,900;1,400;1,600;1,700;1,900&family=Vollkorn:ital@0;1&display=swap');
 $white: #fff;
 $gray-100: #f8f9fa;
 $gray-200: #eee;
@@ -32,15 +63,15 @@ $dark: $gray-800;
 $body-color: $gray-900;
 $navbar-dark-color: rgba($white,.75);
 $navbar-dark-hover-color: $white;
-$headings-font-family: 'League Spartan', sans-serif;
+$headings-font-family: 'Poppins', sans-serif;
 $grid-breakpoints: ( xs: 0, smm: 320px, sm: 576px, md: 768px, lg: 992px, dlg: 1024px, xl: 1290px, xxl: 1440px, 3xl: 1920px, 4xl: 2400px  );
 $font-size-base: 1.125rem;
 $h3-font-size: 1.9375rem;
 $h1-font-size: 6.5625rem;
 $h2-font-size: 4.5rem;
 $headings-font-weight: 900;
-$border-radius: 0;
-$font-family-sans-serif: 'Sanchez', serif;
+$border-radius: 5;
+$font-family-sans-serif: 'SF UI Display', sans-serif;
 $btn-font-family: $headings-font-family;
 $btn-font-weight: 700;
 $input-btn-padding-y: 0.6rem;
@@ -90,3 +121,7 @@ $spacers: (
   18: $spacer * 25,
   19: $spacer * 26.5,
 );
+$Vollkorn: 'Vollkorn', serif;
+.volk {
+  font-family: $Vollkorn;
+}

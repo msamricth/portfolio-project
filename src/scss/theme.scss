@@ -1,3 +1,16 @@
+a, ul li {
+    font-family: $Vollkorn;
+}
+p > a {
+    font-family: $font-family-sans-serif;
+}
+h2 {
+    font-weight: 700;
+}
+article ul > li {
+    //font-size: 1rem;
+    color: $gray-600;
+}
 @include media-breakpoint-up(3xl) { 
     body, p {
         font-size: 1.4rem;
@@ -131,6 +144,12 @@ section.work {
     position: relative;
     overflow: hidden;
     z-index: 45;
+    @include media-breakpoint-up(dlg) {
+        .item {
+            padding-top: 50px;
+            margin-top: -20px;
+        }
+    }
     .card {
         background-color: $componentBlue;
         -webkit-transition: all 0.26s ease;
@@ -189,21 +208,6 @@ section.work {
         }
         .owl-carousel .owl-nav button.owl-next {
             right: -40px;
-        }
-    }
-    .owl-carousel {
-        .owl-nav {
-            .disabled + button.owl-next {
-                background-color: $secondary !important;
-                color: $gray-900 !important;
-                -webkit-animation: breathing 8s ease-out infinite normal;
-                animation: breathing 8s ease-out infinite normal;
-                -webkit-font-smoothing: antialiased;
-                text-align: center;
-            }
-            .disabled + button.owl-next:hover {
-                background-color: $darkPink !important;
-            }
         }
     }
     .owl-nav .disabled {
