@@ -64,18 +64,7 @@ export function main() {
         }
         var skillbtn = $('#skills button.card');
         var reset = '';
-        skillbtn.each(function(index) {
-            $(this).on("click", function(){
-                $('#skills button.card.active').removeClass('active');
-                $('#skillsets .col .collapse.show').removeClass('show');
-                var skillTar = $(this).data('skillTarget');
-                var skillTarget = '#' + skillTar;
 
-                $(this).addClass('active');
-                $(this + '> .card-body .card.text').fadeOut;
-                $(skillTarget).addClass('show');
-            });
-        });
         
         $('.bounce').on('inview', function(event, isInView) {
             var scrollObject = $(this);
@@ -89,4 +78,5 @@ export function main() {
             }
         });
     })
+
 }

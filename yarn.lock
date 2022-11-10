@@ -3674,6 +3674,11 @@
   dependencies:
     "object-visit" "^1.0.0"
 
+"marked@^4.2.0":
+  "integrity" "sha512-1qWHjHlBKwjnDfrkxd0L3Yx4LTad/WO7+d13YsXAC/ZfKj7p0xkLV3sDXJzfWgL7GfW4IBZwMAYWaz+ifyQouQ=="
+  "resolved" "https://registry.npmjs.org/marked/-/marked-4.2.0.tgz"
+  "version" "4.2.0"
+
 "matchdep@^2.0.0":
   "integrity" "sha512-LFgVbaHIHMqCRuCZyfCtUOq9/Lnzhi7Z0KFUE2fhD54+JN2jLh3hC02RLkqauJ3U4soU6H1J3tfj/Byk7GoEjA=="
   "resolved" "https://registry.npmjs.org/matchdep/-/matchdep-2.0.0.tgz"

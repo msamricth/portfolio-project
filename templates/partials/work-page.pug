@@ -38,8 +38,8 @@ article(v-for="field in rfields" v-bind:key="field.id" v-if="field['Header']")
     .container
         .row.additional.fadeScroll
             .col-dlg-10.col-xl-12.mx-auto.mb-5.mb-dlg-8
-                .py-5
-                    h3(v-if="field['Additional Details']") Additional Details
+                .py-5(v-if="field['Additional Details']")
+                    h3 Additional Details
                     p(v-html="field['Additional Details']")
                 img.mb-4(:src="field['Extra Media'][0]['thumbnails']['full']['url']" alt="field['Extra Media'][0]['filename']" v-if="field['Extra Media']")
                 .ratio.ratio-4x3.embed-responsive-210by297(v-if="field['PDF']")

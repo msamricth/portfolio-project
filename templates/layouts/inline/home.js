@@ -72,10 +72,20 @@
         .get("https://api.airtable.com/v0/appfvaCmvdk54pD1l/skills?view=grid&api_key=keyMMHoSzh3H08K5v")
         .then(response => {
             this.skillsets = response.data.records;
+            jQuery(function() { 
+                
+                const markdownNeeded = document.querySelector('.markdown');
+                if(markdownNeeded){
+                    
     
+                                    const markItDown = markdownNeeded.innerText;
+                                    markdownNeeded.innerHTML = marked.parse(markItDown);
+                            
+                }
+            })
         })
-      })
     })
+})
         .catch(error => {
         console.log(error)
         this.errored = true

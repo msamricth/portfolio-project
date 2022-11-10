@@ -8,7 +8,7 @@ h2 {
     font-weight: 700;
 }
 article ul > li {
-    //font-size: 1rem;
+    font-size: 1rem;
     color: $gray-600;
 }
 @include media-breakpoint-up(3xl) { 
@@ -138,7 +138,7 @@ section.header {
 .workbtn-container {
     position: absolute;
     bottom: 5%;
-    right: 5%;
+    right: 1.25rem;
 }
 section.work {
     position: relative;
@@ -222,14 +222,14 @@ section.skills {
     position: relative;
     z-index: 90;
     .skillsets {
-        button.card {
+        .card {
             width: 100%;
             background-color: $componentPink;
             text-align: left;
             .card-body, .card-header {
                 width: 100%;
                 i {
-                    font-size: 50px;
+                    font-size: 1.5rem;
                     margin-right: 15px;
                 }
             }
@@ -237,13 +237,13 @@ section.skills {
     }
 }
 .breathing-button {
-    -webkit-animation: breathing 8s ease-out infinite normal;
-    animation: breathing 8s ease-out infinite normal;
+    -webkit-animation: breathing 6s ease-out infinite normal;
+    animation: breathing 6s ease-out infinite normal;
     -webkit-font-smoothing: antialiased;
     text-align: center;   
     &:hover {
-        -webkit-animation: breathing 3s ease-out infinite normal;
-        animation: breathing 3s ease-out infinite normal;
+        -webkit-animation: breathing 1s ease-out infinite normal;
+        animation: breathing 1s ease-out infinite normal;
     } 
     .bi-arrow-return-left {
         font-size: 36px;
@@ -376,6 +376,23 @@ section.skills {
         -webkit-animation-name: bounce;
         animation-name: bounce;
     }
+    .skillsets {
+        --bs-gutter-x: 20px;
+      }
+    .accordion-item.bg-transparent {
+        border-color: transparent;
+    }
+    h5 button.accordion-button {
+        color: var(--bs-accordion-btn-color) !important;
+        box-shadow: inset 0 calc(-1*var(--bs-accordion-border-width)) 0 var(--bs-accordion-btn-color) !important;
+        &::after {
+            background-image: var(--bs-accordion-btn-icon) !important;
+            color: var(--bs-accordion-btn-color) !important;
+        }
+    }
+    .skillsets__col:nth-child(even) .skill-details{
+        order:2;
+    }
  }
  .skillsets__col--btn .badge {
     font-size: 0.75rem;
@@ -424,6 +441,7 @@ section.skills {
     background-color: $cyan;
     color: color-contrast($cyan);
 }
+
 .stretched-link::after {
     position: absolute;
     top: 0;
@@ -508,4 +526,55 @@ nav.bg-dark .btn {
         }
     }
 
+}
+.mosaic-container{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-gap: .5rem;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.tile img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tile:nth-child(1){
+    grid-column: span 3;
+    grid-row: span 2;
+}
+
+.tile:nth-child(2),
+.tile:nth-child(4){
+    grid-column: span 2;
+}
+
+.tile:nth-child(3) {
+    
+    grid-column: span 3;
+    grid-row: span 2;
+}
+.tile:nth-child(5){
+    grid-column: span 8;
+}
+@media screen and (max-width: 650px){
+    .mosaic-container{
+        display: block;
+    }
+    .tile{
+        margin-bottom: 1rem;
+    }
+}
+.tile:first-child img {
+    border-top-left-radius: var(--bs-card-border-radius);
+    border-bottom-left-radius: var(--bs-card-border-radius);
+}
+.tile:nth-child(3) img {
+    border-top-right-radius: var(--bs-card-border-radius);
+    border-bottom-right-radius: var(--bs-card-border-radius);
+}
+.tile:nth-child(5) img {
+    border-radius: var(--bs-card-border-radius);
 }

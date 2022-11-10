@@ -3,18 +3,22 @@ extends ./layouts/home.pug
 block vars
   - pageTitle = "Home";
   - bodyClass = "home";
-
+  - siteTitle = "Emm Talarico's Portfolio";
+  - siteDescription = "Established wordpress developer and stack engineer readdy for oppertunities";
+  - baseUrl = "https://site-url.com";
 block content
   // Main
+  
   main.main(id="homeSection")
     // Section
     .d-flex.justify-content-center.py-8.loader
         .spinner-border.text-dark(role="status")
             span.visually-hidden Loading...
+
     section.header
       .container-fluid.px-4.py-5.fadeScroll
         h1.placeholder.mb-0(id="siteTitle")
-        p.placeholder(id="tagline")
+        p.ps-1.volk.placeholder(id="tagline")
       .workbtn-container 
         a.breathing-button.btnlink.d-inline-block(href="#work") View Work 
           i.bi.bi-arrow-return-left
