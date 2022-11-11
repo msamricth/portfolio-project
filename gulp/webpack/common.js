@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: ["./js/scripts.js"],
+  entry: ["./src/js/scripts.js"],
   output: {
     filename: "scripts.js",
     path: path.resolve(__dirname, "../../site/js")
@@ -21,7 +21,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".json"],
     alias: {
-      "@": path.resolve(__dirname, "../../js")
+      "@": path.resolve(__dirname, "../../src/js")
     }
   }
 };

@@ -1,28 +1,27 @@
-extends ./layouts/default.pug
+extends ./layouts/home.pug
 
 block vars
   - pageTitle = "Home";
   - bodyClass = "home";
-
+  - siteTitle = "Emm Talarico's Portfolio";
+  - siteDescription = "Established wordpress developer and stack engineer readdy for oppertunities";
+  - baseUrl = "https://site-url.com";
 block content
   // Main
-  main.main
+  
+  main.main(id="homeSection")
     // Section
-    section.section
-      .container
-        h1 Home
-        h2 This is section 1
-        p This is a paragraph.
+    .d-flex.justify-content-center.py-8.loader
+        .spinner-border.text-dark(role="status")
+            span.visually-hidden Loading...
 
-    // Section
-    section.section
-      .container
-        h2 This is section 2
-        p This is a paragraph. Some 
-          b bold
-          | , 
-          i italic
-          |  and 
-          b
-            i bold italic
-          | .
+    section.header
+      .container-fluid.px-4.py-5.fadeScroll
+        h1.placeholder.mb-0(id="siteTitle")
+        p.ps-1.volk.placeholder(id="tagline")
+      .workbtn-container 
+        a.breathing-button.btnlink.d-inline-block(href="#work") View Work 
+          i.bi.bi-arrow-return-left
+    include partials/work.pug
+    include partials/skills.pug
+    include partials/footer.pug

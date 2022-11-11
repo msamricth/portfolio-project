@@ -1,0 +1,38 @@
+section.skills.py-6.bg-secondary.px-xxl-5.px-md-3(id="skills")
+    .container-fluid.px-3
+        h3.mb-0.fadeScroll.ps-3.ps-md-0 Skillsets
+        p.mb-xxl-5.mb-4.fadeScroll Languages / Tech Stacks / Frameworks / and everything in-between. 
+        .accordion.accordion-flush(id="skill-categories")
+            .accordion-item.bg-transparent 
+                h5.mb-3.fadeScroll.accordion-header(id="featured-skillsHeading") 
+                    button.bg-transparent.accordion-button(type="button" data-bs-toggle="collapse" data-bs-target="#featured-skills" aria-expanded="true" aria-controls="featured-skills") Featured
+                .accordion-collapse.collapse.show(id="featured-skills" aria-labelledby="featured-skillsHeading")
+                    .accordion-body.px-0
+                        .skillsets.mb-6(id="skillsets")
+                            .skillsets__col.col-12(v-for="record in skillsets" v-bind:key="record.Title" v-if="record['fields']['Featured']")
+                                .skillsets__col--btn.fadeScroll.card.border-0.mb-5.overflow-hidden
+                                    .card-body.p-0
+                                        .row.g-0
+                                            .col-md-6.col-dlg-8.col-3xl-9.bg-white.p-4.skill-details
+                                                .d-flex.align-items-end.justify-content-between.mb-3
+                                                    .d-flex.align-items-center
+                                                        i(:class="record['fields']['icon']")
+                                                        h4.card-title.mb-0 {{ record['fields']['Name'] }}
+                                                    .small(v-if="record['fields']['Number']") 
+                                                        em.text-muted.small.d-block.mt-2
+                                                            span {{ record['fields']['Number'] }} 
+                                                            span {{ record['fields']['Statement'] }}
+                                                p.markdown {{ record['fields']['Notes'] }}
+                                                div(v-html="record['fields']['NoteFX']")
+                                            .col-md-6.col-dlg-4.col-3xl-3.pb-5.mb-dlg-3.p-4(v-if="record['fields']['Images']")
+                                                .mosaic-container
+                                                    .tile.bounce-card(v-for="(item, index) in record['fields']['Images']" v-bind:class="{ 'active': index === 0 }")
+                                                        img(:src="item['url']" alt="item['filename']" v-if="record['fields']['Images']")
+                                                p.small 
+                                                    span.volk Associated experience: 
+                                                    span.volk(v-html="record['fields']['ListTags']")
+            .accordion-item.bg-transparent
+                h5.mb-3.fadeScroll.accordion-header(id="Additional-skillsHeading") 
+                    button.bg-transparent.accordion-button.collapsed(type="button" data-bs-toggle="collapse" data-bs-target="#Additional-skills" aria-expanded="false" aria-controls="Additional-skills") Additional
+                .accordion-collapse.collapse(id="Additional-skills" aria-labelledby="Additional-skillsHeading")
+                    .accordion-body additional

@@ -16,7 +16,7 @@ var sassConfig = {
 // Simple fix by adding .on callback to sass().
 function styles() {
   return gulp
-    .src("./sass/style.sass")
+    .src("./src/scss/style.sass")
     .pipe(
       sassVariables({
         $assetVersion: assetVersion

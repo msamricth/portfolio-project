@@ -1,0 +1,15 @@
+extends ./layouts/work.pug
+
+block vars
+  - pageTitle = "DAT - Product Finder";
+  - bodyClass = "dat";
+  - recordID = "recVARGLL8DhYK9qF";
+
+block content
+  // Main
+  main.main(id="work" data-record="recVARGLL8DhYK9qF")
+    .d-flex.justify-content-center.py-8.loader
+        .spinner-border.text-dark(role="status")
+            span.visually-hidden Loading...
+    include partials/work-page.pug
+    include partials/footer.pug
