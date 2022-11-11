@@ -1,0 +1,46 @@
+
+article(v-for="field in rfields" v-bind:key="field.id" v-if="field['Header']")
+    nav.navbar.navbar-expand-lg.bg-dark.position-fixed.navbar-dark.w-100
+        .container-fluid
+            a.ms-4.navbar-brand.me-auto(href="/" alt="Return Home")
+                i.fa-solid.fa-arrow-left.me-3
+                span Emm's Portfolio
+            a.btn.d-none.d-sm-block.me-4(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']") {{ field['Client']}}: {{ field['Project']}}
+    .project-header.bg-gray-mid.pt-5.pt-md-7.pb-5.pt-xl-9(v-if="field['Header']")
+        .container 
+            .row 
+                .col-md-6
+                    img.header-img.d-none.d-md-block(:src="field['Header'][0]['thumbnails']['full']['url']" alt="field['Header'][0]['filename']" v-if="field['Header']")
+                .col-md-6.ps-dlg-5.pt-dlg-5.pt-5.pt-md-0.pt-xl-8.d-flex.flex-column.justify-content-between
+                    .header-details
+                        h2.mb-2.mb-dlg-3 Client: {{ field['Client']}}
+                        img.mb-2.mb-dlg-3.mb-xl-4.logo(:src="field['Logo'][0]['thumbnails']['full']['url']" alt="field['Logo'][0]['filename']" v-if="field['Logo']")
+                    .meta-details
+                        p.lead.mt-0 Project: 
+                            a(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']") {{ field['Project']}}
+                        p.mb-sm-5.mb-xl-9 Tech Stack: 
+                            span(v-html="field['SkillFilter']")
+                    a.btn.btn-outline-primary.d-sm-none(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']") {{ field['Client']}}: {{ field['Project']}}
+    .container(v-if="field['Client']")
+        .row.py-5.pt-dlg-8
+            .col-md-8 
+                .content.pe-6
+                    h2.mb-4 Summary
+                    p(v-html="field['General Details']")
+            .col-md-4.pt-3
+                h5.mt-md-2.mt-dlg-4.mb-2 Work involved with this project
+                ul.mb-5.mb-xl-9.list-unstyled(v-html="field['ListsTags']")  
+    .row.featured-images.pb-5.mb-dlg-3.g-0(v-if="field['Bodied Media']")
+        .col-dlg-10.col-xl-12.col-3xl-10.mx-auto
+            .owl-carousel.owl-theme(id="featured")
+                .item(v-for="(item, index) in field['Bodied Media']" v-bind:class="{ 'active': index === 0 }")
+                    img(:src="item['url']" alt="item['filename']" v-if="field['Bodied Media']")
+    .container
+        .row.additional.fadeScroll
+            .col-dlg-10.col-xl-12.mx-auto.mb-5.mb-dlg-8
+                .py-5(v-if="field['Additional Details']")
+                    h3 Additional Details
+                    p(v-html="field['Additional Details']")
+                img.mb-4(:src="field['Extra Media'][0]['thumbnails']['full']['url']" alt="field['Extra Media'][0]['filename']" v-if="field['Extra Media']")
+                .ratio.ratio-4x3.embed-responsive-210by297(v-if="field['PDF']")
+                    iframe.embed-responsive-item(:src="field['PDF'][0]['url']")
