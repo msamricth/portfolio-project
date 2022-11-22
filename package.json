@@ -1,9 +1,9 @@
 {
-  "name": "static-site-starter",
+  "name": "portfolio-project",
   "version": "1.14.2",
   "description": "",
   "main": "index.js",
-  "author": "awea <aweaoftheworld@gmail.com>",
+  "author": "msamricth <emm.talarico@gmail.com>",
   "license": "GPL-3.0",
   "dependencies": {
     "@popperjs/core": "^2.11.6",
