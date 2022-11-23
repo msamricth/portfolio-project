@@ -4,6 +4,8 @@ import { inview } from "@/inview.js";
 import { btn_ripples } from "@/ripples.js";
 import { main } from "@/main.js";
 import { markedJS } from '@/marked.js';
+import { MixItUpScripts } from '@/mixitup.js';
 inview();
 markedJS();
+MixItUpScripts();
 main();

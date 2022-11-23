@@ -5,7 +5,6 @@
   font-weight: 100;
   src: local('SF UI Display Ultralight'), url('/assets/fonts/sf-ui-display-ultralight-58646b19bf205.woff') format('woff');
   }
-  
 
   @font-face {
     font-family: 'SF UI Display';
@@ -14,15 +13,12 @@
   src: local('SF UI Display Light'), url('/assets/fonts/sf-ui-display-light-58646b33e0551.woff') format('woff');
   }
   
-
   @font-face {
     font-family: 'SF UI Display';
   font-style: normal;
   font-weight: 400;
   src: local('SF UI Display Medium'), url('/assets/fonts/sf-ui-display-medium-58646be638f96.woff') format('woff');
   }
-
-  
 
   @font-face {
     font-family: 'SF UI Display';
@@ -89,6 +85,9 @@ $componentPink: lighten($secondary, 8%);
 $componentBlue: lighten($primary, 8%);
 $componentBlueHover: lighten($primary, 18%);
 $darkPink: darken($secondary, 25%);
+
+$md-darkpink: #361222;
+$md-lightpink: #ffb2e6;
 
 $colors: ("blue": $blue, "indigo": $indigo, "purple": $purple, "pink": $pink, "red": $red, "orange": $orange, "yellow": $yellow, "green": $green, "teal": $teal, "cyan": $cyan, "white": $white, "gray": $gray-600, "gray-dark": $gray-900, "gray-mid": $gray-700 );
 $theme-colors: (
