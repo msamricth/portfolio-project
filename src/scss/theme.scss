@@ -50,48 +50,54 @@ section.work {
 }
 @-webkit-keyframes bounce-subtle {
     0% {
-    -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-    opacity: 1;
-  }
-  24% {
-    opacity: 1;
-  }
-  40% {
-    -webkit-transform: translateY(-6px);
-            transform: translateY(-6px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  82% {
-    -webkit-transform: translateY(-2px);
-            transform: translateY(-2px);
-    -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
-  }
-  25%,
-  55%,
-  75%,
-  87% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-  }
-  100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px);
-    -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
-    opacity: 1;
-  }
-}
+        -webkit-transform: translateY(-1px);
+                transform: translateY(-1px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+        opacity: 1;
+      }
+      24% {
+        opacity: 1;
+      }
+      40% {
+        -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+      }
+      66% {
+        -webkit-transform: translateY(-3px);
+                transform: translateY(-3px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+      }
+      82% {
+        -webkit-transform: translateY(-2px);
+                transform: translateY(-2px);
+        -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+      }
+      25%,
+      55%,
+      75%,
+      87% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+      }
+      100% {
+        -webkit-transform: translateY(0px);
+                transform: translateY(0px);
+        -webkit-animation-timing-function: ease-out;
+                animation-timing-function: ease-out;
+        opacity: 1;
+      }
+    }
   @keyframes bounce-subtle {
     0% {
-      -webkit-transform: translateY(-2px);
-              transform: translateY(-2px);
+      -webkit-transform: translateY(-1px);
+              transform: translateY(-1px);
       -webkit-animation-timing-function: ease-in;
               animation-timing-function: ease-in;
       opacity: 1;
@@ -100,14 +106,20 @@ section.work {
       opacity: 1;
     }
     40% {
-      -webkit-transform: translateY(-6px);
-              transform: translateY(-6px);
+      -webkit-transform: translateY(-3px);
+              transform: translateY(-3px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    66% {
+      -webkit-transform: translateY(-2px);
+              transform: translateY(-2px);
       -webkit-animation-timing-function: ease-in;
               animation-timing-function: ease-in;
     }
     82% {
-      -webkit-transform: translateY(-2px);
-              transform: translateY(-2px);
+      -webkit-transform: translateY(-1px);
+              transform: translateY(-1px);
       -webkit-animation-timing-function: ease-in;
               animation-timing-function: ease-in;
     }
@@ -426,14 +438,23 @@ section.skills {
             &:has(.mixitup-control-active){
                 order:1 !important;
             }
-            &:hover, &:focus-within {
+            &:hover, &:focus-within, &:focus {
                 button.control.btn{
                     color: $body-color;
                     background-color: transparent;
                     border-color: $md-darkpink;
                     transition: color 0.46s ease, border-color 0.46s ease;
-                    -webkit-animation: bounce-subtle 0.9s both;
-                    animation: bounce-subtle 0.9s both;
+                    -webkit-animation: bounce-subtle 0.7s both;
+                    animation: bounce-subtle 0.7s both;
+                    &.mixitup-control-active {
+                        color: $md-darkpink;
+                        background-color: $secondary;
+                        border-color: $secondary;
+                        transition: background-color 0.46s ease, border-color 0.46s ease;
+                        .close {
+                            opacity: 1;
+                        }
+                    }
                 }
             }
             button.control.btn{
@@ -476,20 +497,8 @@ section.skills {
                     --bs-btn-bg: #{$md-lightpink};
                     --bs-btn-border-color: #{$md-lightpink};
                     transition: background-color 0.46s ease, border-color 0.46s ease, color 0.46s ease;
-                    &:last-child {
-                        margin-bottom: 20px;
-                    }
                     small {
                         margin-right: 14px;
-                    }
-                    &:hover, &:focus-within {
-                        color: $md-darkpink;
-                        background-color: $secondary;
-                        border-color: $secondary;
-                        transition: background-color 0.46s ease, border-color 0.46s ease;
-                        .close {
-                            opacity: 1;
-                        }
                     }
                     .close {
                         visibility: visible;
