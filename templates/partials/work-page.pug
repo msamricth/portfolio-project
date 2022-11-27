@@ -26,7 +26,7 @@ article(v-for="field in rfields" v-bind:key="field.id" v-if="field['Header']")
             .col-md-8 
                 .content.pe-6
                     h2.mb-4 Summary
-                    p(v-html="field['General Details']")
+                    p.markdown(v-html="field['General Details']")
             .col-md-4.pt-3
                 h5.mt-md-2.mt-dlg-4.mb-2 Work involved with this project
                 ul.mb-5.mb-xl-9.list-unstyled(v-html="field['ListsTags']")  
@@ -40,7 +40,7 @@ article(v-for="field in rfields" v-bind:key="field.id" v-if="field['Header']")
             .col-dlg-10.col-xl-12.mx-auto.mb-5.mb-dlg-8
                 .py-5(v-if="field['Additional Details']")
                     h3 Additional Details
-                    p(v-html="field['Additional Details']")
+                    p.markdown(v-html="field['Additional Details']")
                 img.mb-4(:src="field['Extra Media'][0]['thumbnails']['full']['url']" alt="field['Extra Media'][0]['filename']" v-if="field['Extra Media']")
                 .ratio.ratio-4x3.embed-responsive-210by297(v-if="field['PDF']")
                     iframe.embed-responsive-item(:src="field['PDF'][0]['url']")

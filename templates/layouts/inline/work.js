@@ -30,38 +30,39 @@ jQuery(function() {
                 .then(response => {
                     this.rfields = response.data;
                     $('.app').addClass('loaded');
-                    jQuery(function() { $('.owl-carousel').owlCarousel({
-                        rewind:true,
-                        nav:true,
-                        dots:true,
-                        margin:50,
-                        responsive:{
-                            0:{
-                                items:1
-                            },
-                            600:{
-                                items:2
-                            },
-                            1680: {
-                                items:3
-                            },
-                            1920: {
-                                items:4
+                    jQuery(function() { 
+                        $('.owl-carousel').owlCarousel({
+                            rewind:true,
+                            nav:true,
+                            dots:true,
+                            margin:50,
+                            responsive:{
+                                0:{
+                                    items:1
+                                },
+                                600:{
+                                    items:2
+                                },
+                                1680: {
+                                    items:3
+                                },
+                                1920: {
+                                    items:4
+                                }
                             }
-                        }
-                    });
-                    $('.fadeScroll').on('inview', function(event, isInView) {
-                        var scrollObject = $(this);
-                        if (isInView) {
-                            setTimeout(
-                                function() {
-                                    scrollObject.addClass('in');
-                                }, 400);
-                            
-                        } else {
-                        }
-                    });
-                    var featuredCarousel = $('.featured-images');
+                        });
+                        $('.fadeScroll').on('inview', function(event, isInView) {
+                            var scrollObject = $(this);
+                            if (isInView) {
+                                setTimeout(
+                                    function() {
+                                        scrollObject.addClass('in');
+                                    }, 400);
+                                
+                            } else {
+                            }
+                        });
+                        var featuredCarousel = $('.featured-images');
                         if((featuredCarousel).length){
                             featuredCarousel.on('inview', function(event, isInView) {
                                 if (isInView) {
@@ -70,6 +71,15 @@ jQuery(function() {
                                     featuredCarousel.removeClass('active');
                                 }
                             });
+                        }
+                        const markdownNeeded = document.querySelectorAll('.markdown');
+                        var elements = document.getElementsByTagName('div');
+                        if(markdownNeeded){
+                            for (var i = 0; i < markdownNeeded.length; i++) {
+                                const markItDown = markdownNeeded[i].innerText;
+                                markdownNeeded[i].innerHTML = marked.parse(markItDown);
+                            }
+                                    
                         }
                  });
             
