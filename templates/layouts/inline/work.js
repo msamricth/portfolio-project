@@ -6,6 +6,7 @@ jQuery(function() {
             return {
                 siteTitle: null,
                 siteTag:null,
+                headerIMG: null,
                 loading: true,
                 errored: false,
                 featuredProjects: [],
@@ -29,7 +30,15 @@ jQuery(function() {
                 })
                 .then(response => {
                     this.rfields = response.data;
+                    var fields = this.rfields;
+                    console.log(fields);
+                   this.headerIMG = response.data.fields.Header[0].thumbnails.full.url;
                     $('.app').addClass('loaded');
+                    
+                   var img = this.headerIMG;
+                   console.log(img);
+                   
+                   VibJS();
                     jQuery(function() { 
                         $('.owl-carousel').owlCarousel({
                             rewind:true,

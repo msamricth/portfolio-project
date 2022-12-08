@@ -776,6 +776,8 @@ nav.bg-dark .btn {
     color: white;
     text-transform: uppercase;
     padding-top: 0.6rem;
+    
+    i { mix-blend-mode: difference; }
     &:hover {
         opacity: 0.8;
     }
@@ -860,4 +862,23 @@ nav.bg-dark .btn {
 }
 .tile:nth-child(5) img {
     border-radius: var(--bs-card-border-radius);
+}
+.project-header, nav.navbar .btn, .navbar {
+    transition: background-color .6s ease;
+  }
+  .navbar {
+    transition: top .6s ease, background-color .6s ease;
+  }
+.navbar.nav-scrolled h2 {
+    mix-blend-mode: difference;
+    width:50%;
+    left:25%;
+    top:.7125rem;
+    position: absolute;
+    text-align:center;
+}
+
+.navbar h2 {
+    font-size: 1.5rem;
+    transition: top .6s ease, left .6s ease, width .6s ease;
 }
