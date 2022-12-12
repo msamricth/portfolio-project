@@ -406,6 +406,14 @@ section.skills {
     position: relative;
     z-index: 90;
     .skillsets {
+        ul.list-group.list-group-flush {
+            padding-left: 8px;
+            border-left: 4px solid $md-lightpink;
+            li.list-group-item {
+                color: $md-darkpink;
+                padding: 0 9px;
+            }
+        }
         .skillsets__col {
             .card {
                 width: 100%;
