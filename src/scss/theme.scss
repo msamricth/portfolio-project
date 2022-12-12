@@ -677,52 +677,54 @@ section.skills {
         order:2;
     }
  }
- .skillsets__col--btn .badge {
-    font-size: 0.75rem;
-    padding: 0.25rem .45rem;
-    color: black;
-    box-shadow: 0.1px 0.1px 3px rgba(0,0,0,0.13);
-    margin: 0 5px 3px;
-}
-.skillsets__col--btn .badge:first-child{
+.skillsets {
+    .badge {
+        font-size: 0.75rem;
+        padding: 0.25rem .45rem;
+        color: black;
+        box-shadow: 0.1px 0.1px 3px rgba(0,0,0,0.13);
+        margin: 0 5px 3px;
+    }
+    .badge:first-child{
     background-color: $blue;
     color: color-contrast($blue);
-}
-.skillsets__col--btn .badge:nth-child(2){
+    }
+    .badge:nth-child(2){
     background-color: $indigo;
     color: color-contrast($indigo);
-}
-.skillsets__col--btn .badge:nth-child(3){
+    }
+    .badge:nth-child(3){
     background-color: $purple;
     color: color-contrast($purple);
-}
-.skillsets__col--btn .badge:nth-child(4){
+    }
+    .badge:nth-child(4){
     background-color: $pink;
     color: color-contrast($pink);
-}
-.skillsets__col--btn .badge:nth-child(5){
+    }
+    .badge:nth-child(5){
     background-color: $red;
     color: color-contrast($red);
-}
-.skillsets__col--btn .badge:nth-child(6){
+    }
+    .badge:nth-child(6){
     background-color: $orange;
     color: color-contrast($orange);
-}
-.skillsets__col--btn .badge:nth-child(7){
+    }
+    .badge:nth-child(7){
     background-color: $yellow;
     color: color-contrast($yellow);
-}
-.skillsets__col--btn .badge:nth-child(8){
+    }
+    .badge:nth-child(8){
     background-color: $green;
     color: color-contrast($green);
-}
-.skillsets__col--btn .badge:nth-child(9){
+    }
+    .badge:nth-child(9){
     background-color: $teal;
     color: color-contrast($teal);
-}
-.skillsets__col--btn .badge:nth-child(10){
+    }
+    .badge:nth-child(10){
     background-color: $cyan;
     color: color-contrast($cyan);
+    }
 }
 
 .stretched-link::after {
