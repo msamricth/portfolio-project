@@ -19,11 +19,23 @@ export function main() {
             $('#work .fadeScroll').addClass("in");
             $('#work .bounce').addClass("in");
         } else {
+            removehash();
             workContainer.removeClass('active');
         }
     });
+    window.onload = workOnLoad();
+    
+    function workOnLoad(){
+        if(window.location.hash) {
+            if(location.hash.substring(1) == 'work'){
+                $('#work .fadeScroll').addClass("in");
+                $('#work .bounce').addClass("in");
+            }
+        }
+    }
     skillzContainer.on('inview', function(event, isInView) {
         if (isInView) {
+            removehash();
             skillzContainer.addClass('active');
             $('#skillsets .card').addClass("in");
         } else {
@@ -41,6 +53,13 @@ export function main() {
         } else {
         }
     });
+    function removehash(){
+        if(window.location.hash) {
+            setTimeout(function(){
+                history.replaceState("", document.title, window.location.pathname);
+            }, 1);
+        }
+    }
     const article = document.querySelectorAll(".skill-col-btn");
     function showSKillz() {
         if (article.className == "open") {

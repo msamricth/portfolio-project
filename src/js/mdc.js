@@ -78,20 +78,46 @@ export function VibJS() {
   
     
     // If the background color is dark, add the light-text class to it
-    if(lightOrDark(primColor) == 'dark') {
-      primaryCntr = newShade(primColor, 10);
-      primary = primColor;
-  
+    
+    primaryCntr = primColor;
+    primary = primColor;
+    if(color[5] == '#ffffff') {
+      tertiary = color[3];
+      tertiaryCntr = newShade(tertiary, 80);
+    } else {
+      tertiary = color[5];
+      tertiaryCntr = newShade(tertiary, 80);
     }
-    else {
-      primaryCntr = newShade(primColor, -10);
-      primary = newShade(primColor, -30);
+    secondary = color[2];
+    secondaryCntr = newShade(secondary, 80);
+    
+    // If the background color is dark, add the light-text class to it
+    if(primColor == "#000000") {
+
+      primaryCntr = newShade(primColor, 80);
+      primary = newShade(primColor, 25);
+    } else {
+      if(primColor == "#ffffff") {
+        
+        primaryCntr = secondaryCntr;
+        primary = secondary;
+      } else {
+        if(lightOrDark(primColor) == 'dark') {
+          primaryCntr = newShade(primColor, 10);
+          primary = primColor;
+      
+        }
+        else {
+          primaryCntr = tertiaryCntr;
+          primary = tertiary;
+        }
+      }
     }
     
     setTimeout(
       function() {
      main.style.setProperty("background-color", primaryCntr, "important");
-                                        navBTN.style.setProperty("background-color", primColor, "important");
+         navBTN.style.setProperty("background-color", primColor, "important");
     nav.style.setProperty("background-color", primaryCntr, "important");
           console.log('primary container color is:' + primaryCntr);
     console.log('primary color is:' + primary);
