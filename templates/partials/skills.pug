@@ -3,7 +3,7 @@ section.skills.py-6.bg-secondary.px-xxl-5.px-3(id="skills")
         h3.mb-0.fadeScroll Featured Skillsets 
             small (and not an all exclusive list!)
         p.mb-5.fadeScroll Languages / Platforms / frameworks / and everything in-between. 
-        .skillsets.row.mb-6(id="skillsets")
-            .col-md-6.col-dlg-3(v-for="record in skillsets" v-bind:key="record.Title") 
+        .skillsets.row.mb-6.bounce.fadeScroll(id="skillsets")
+            .col-sm-6.col-md-4.col-dlg-3.bounce-card.mb-4.mb-dlg-2(v-for="record in skillsets" v-bind:key="record.Title") 
                 h6 {{ record['fields']['Name'] }}
                 ul.list-group.list-group-flush(v-html="record['fields']['list']")

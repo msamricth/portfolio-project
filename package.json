@@ -13,6 +13,7 @@
     "marked": "^4.2.3",
     "minireset.css": "^0.0.7",
     "owl.carousel": "^2.3.4",
+    "tinycolor2": "^1.5.1",
     "vue": "^3.2.45"
   },
   "devDependencies": {

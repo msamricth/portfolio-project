@@ -73,7 +73,17 @@ var labels = new Vue({
         .then(response => {
             this.skillsets = response.data.records;
             jQuery(function() { 
-                
+                var skillsContainer = $('section#skills');
+
+                skillsContainer.on('inview', function(event, isInView) {
+                    if (isInView) {
+                        skillsContainer.addClass('active');
+                        $('#work .fadeScroll').addClass("in");
+                        $('#work .bounce').addClass("in");
+                    } else {
+                        skillsContainer.removeClass('active');
+                    }
+                });
                 const markdownNeeded = document.querySelector('.markdown');
                 if(markdownNeeded){
                     
