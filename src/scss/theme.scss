@@ -425,6 +425,7 @@ section.skills {
         ul.list-group.list-group-flush {
             padding-left: 8px;
             border-left: 4px solid $md-lightpink;
+            --bs-list-group-bg: transparent;
             li.list-group-item {
                 color: $md-darkpink;
                 padding: 0 9px;
