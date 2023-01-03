@@ -1,35 +1,42 @@
 
 article(v-for="field in rfields" v-bind:key="field.id" v-if="field['Header']")
-    nav.navbar.navbar-expand-lg.bg-dark.position-fixed.navbar-dark.w-100
+    nav.navbar.bg-dark.fixed-top.navbar-dark.w-100(id="nav")
         .container-fluid
-            a.ms-4.navbar-brand.me-auto(href="/" alt="Return Home")
-                i.fa-solid.fa-arrow-left.me-3
-                span Emm's Portfolio
-            a.btn.d-none.d-sm-block.me-4(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']") {{ field['Client']}}: {{ field['Project']}}
+            a.ms-4.navbar-brand.me-auto(href="/#work" alt="Return Home" data-bs-toggle='tooltip', data-bs-title="Back to Emm's Portfolio", data-bs-placement='bottom')
+                i.fa-solid.fa-arrow-left.me-3 
+                span.d-none.d-dlg-inline Emm's portfolio
+            a.btn.d-none.d-sm-block.me-4(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']", alt='DAT Product Finder', data-bs-toggle='tooltip', :data-bs-title=`'<i class="fa-solid fa-arrow-up-right-from-square"></i> ' + field['Client'] +': '+ field['Project']`, data-bs-placement='bottom', data-bs-html='true')
+                i.fa-solid.fa-paperclip
+        .container-fluid
+            h2.ms-4 {{ field['Client']}} 
+                span.font-weight-normal  //  {{ field['Project']}}
     .project-header.bg-gray-mid.pt-5.pt-md-7.pb-5.pt-xl-9(v-if="field['Header']")
-        .container 
-            .row 
-                .col-md-6
-                    img.header-img.d-none.d-md-block(:src="field['Header'][0]['thumbnails']['full']['url']" alt="field['Header'][0]['filename']" v-if="field['Header']")
-                .col-md-6.ps-dlg-5.pt-dlg-5.pt-5.pt-md-0.pt-xl-8.d-flex.flex-column.justify-content-between
-                    .header-details
-                        h2.mb-2.mb-dlg-3 Client: {{ field['Client']}}
-                        img.mb-2.mb-dlg-3.mb-xl-4.logo(:src="field['Logo'][0]['thumbnails']['full']['url']" alt="field['Logo'][0]['filename']" v-if="field['Logo']")
-                    .meta-details
-                        p.lead.mt-0 Project: 
-                            a(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']") {{ field['Project']}}
-                        p.mb-sm-5.mb-xl-9 Tech Stack: 
-                            span(v-html="field['SkillFilter']")
-                    a.btn.btn-outline-primary.d-sm-none(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']") {{ field['Client']}}: {{ field['Project']}}
-    .container(v-if="field['Client']")
-        .row.py-5.pt-dlg-8
-            .col-md-8 
-                .content.pe-6
-                    h2.mb-4 Summary
-                    p.markdown(v-html="field['General Details']")
-            .col-md-4.pt-3
-                h5.mt-md-2.mt-dlg-4.mb-2 Work involved with this project
-                ul.mb-5.mb-xl-9.list-unstyled(v-html="field['ListsTags']")  
+        img.header-img(:src="field['Header'][0]['thumbnails']['full']['url']" crossorigin="anonymous" alt="field['Header'][0]['filename']" v-if="field['Header']")
+        .container.position-relative
+            .row    
+                .col-md-9.pt-dlg-3.pt-5.pt-md-0.my-4.my-dlg-5.mt-xl-0.pt-xl-5.d-flex.flex-column.justify-content-between
+                    .card
+                        .card-header
+                            .monogram 
+                                img.logo(:src="field['Logo'][0]['thumbnails']['full']['url']" alt="field['Logo'][0]['filename']" v-if="field['Logo']")
+                            .card-title
+                                h5.mb-0 {{ field['Project']}}
+                                small Project Summary
+                        .card-body
+                            .small.markdown(v-html="field['General Details']")
+                            ul.mb-2.mb-xl-3.small.list-group.list-group-flush(v-html="field['ListsTags']")
+                            .disabled-actions.actions.techstack.d-flex.mb-2
+                                .fa-solid.fa-microchip.me-2
+                                span.small(v-html="field['SkillFilter']")
+                        .card-footer
+                            .actions
+                                a.btn(:href="field['Project URL']" target="_blank" :alt="field['Client'] + ' ' + field['Project']" v-if="field['Project URL']") 
+                                    span {{ field['Client']}}: {{ field['Project']}}
+    .container.summary(v-if="field['Client']")
+        .row.py-5.pt-dlg-8.pt-xl-10
+            .col-md-12
+                .content.pe-6.text-center
+                    h2.mb-4 Gallery
     .row.featured-images.pb-5.mb-dlg-3.g-0(v-if="field['Bodied Media']")
         .col-dlg-10.col-xl-12.col-3xl-10.mx-auto
             .owl-carousel.owl-theme(id="featured")
